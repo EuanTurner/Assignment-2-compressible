@@ -13,7 +13,7 @@ p_inf = 1354 -- Pa
 T_inf = 220.0 -- K (subject to change, currently placeholder)
 
 initial = FlowState:new{p=p_inf, T=T_inf}
-inflow = FlowState:mew{p=p_inf, T=T_inf, velx=M_inf*initial.a, vely=0.0}
+inflow = FlowState:new{p=p_inf, T=T_inf, velx=M_inf*initial.a, vely=0.0}
 
 -- Specified ramp coordinates
 Ax = 0.0

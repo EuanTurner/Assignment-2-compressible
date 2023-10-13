@@ -6,7 +6,7 @@ config.dimensions = 2
 config.axisymmetric = true
 
 -- Set gas model and flow parameters
-SetGasModel('ideal-air.gas')
+setGasModel('ideal-air.gas')
 
 M_inf = 6.42
 p_inf = 1354 -- Pa
@@ -73,3 +73,21 @@ grid[2] = StructuredGrid:new{psurface=patch[2], niv=21, njv=11}
 --     fileName = string.format("block-%d.vtk", ib)
 --     grid[ib]:write_to_vtk_file(fileName)
 --  end
+
+blk0 = FluidBlock:new{grid=grid[0], initialState=inflow,
+                        bcList={west=InFlowBC_Supersonic:new{flowState=inflow}}    
+}
+blk1 = FluidBlock:new{grid=grid[1], initialState=inflow,
+                        bcList={}    
+} 
+blk2 = FluidBlock:new{grid=grid[2], initialState=inflow,
+                        bcList={east=OutFlowBC_Simple:new{}}    
+} 
+identifyBlockConnections() -- internal connections dealt with
+
+-- set solver settings (preliminary)
+config.max_time = 5.0e-3 -- s
+config.max_step = 3000
+config.dt_init = 1.0e-6 
+config.flux_calculator = "ausmdv"
+config.dt_plot = 0.5e-3

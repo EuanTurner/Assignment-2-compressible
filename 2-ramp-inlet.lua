@@ -1,6 +1,20 @@
 -- Date: 2023-10-13
 -- Author: Euan Turner
 
+config.title = "Ramjet Inlet (non-curved)"
+config.dimensions = 2
+config.axisymmetric = true
+
+-- Set gas model and flow parameters
+SetGasModel('ideal-air.gas')
+
+M_inf = 6.42
+p_inf = 1354 -- Pa
+T_inf = 220.0 -- K (subject to change, currently placeholder)
+
+initial = FlowState:new{p=p_inf, T=T_inf}
+inflow = FlowState:mew{p=p_inf, T=T_inf, velx=M_inf*initial.a, vely=0.0}
+
 -- Specified ramp coordinates
 Ax = 0.0
 Ay = 0.541
@@ -55,7 +69,7 @@ grid={}
 grid[0] = StructuredGrid:new{psurface=patch[0], niv=21, njv=11}
 grid[1] = StructuredGrid:new{psurface=patch[1], niv=21, njv=11}
 grid[2] = StructuredGrid:new{psurface=patch[2], niv=21, njv=11}
-for ib = 0, 2 do
-    fileName = string.format("block-%d.vtk", ib)
-    grid[ib]:write_to_vtk_file(fileName)
- end
+-- for ib = 0, 2 do
+--     fileName = string.format("block-%d.vtk", ib)
+--     grid[ib]:write_to_vtk_file(fileName)
+--  end

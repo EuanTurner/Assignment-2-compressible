@@ -69,10 +69,6 @@ grid={}
 grid[0] = StructuredGrid:new{psurface=patch[0], niv=21, njv=11}
 grid[1] = StructuredGrid:new{psurface=patch[1], niv=21, njv=11}
 grid[2] = StructuredGrid:new{psurface=patch[2], niv=21, njv=11}
--- for ib = 0, 2 do
---     fileName = string.format("block-%d.vtk", ib)
---     grid[ib]:write_to_vtk_file(fileName)
---  end
 
 blk0 = FluidBlock:new{grid=grid[0], initialState=inflow,
                         bcList={west=InFlowBC_Supersonic:new{flowState=inflow}}    

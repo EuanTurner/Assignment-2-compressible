@@ -241,7 +241,7 @@
         "num_cntrl_pts": 0, 
         "field_bc": {"name": "unspecified"},
         "pre_recon_action": [
-          {"type": "full_face_copy", "other_block": 2, "other_face": "west", "orientation": 0, "reorient_vector_quantities": false, "Rmatrix": [1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00]}
+          {"type": "full_face_copy", "other_block": 1, "other_face": "west", "orientation": 0, "reorient_vector_quantities": false, "Rmatrix": [1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00]}
         ],
         "post_conv_flux_action": [
 
@@ -345,7 +345,7 @@
         ]
     },
     "boundary_east": {"label": "", 
-        "type": "wall_with_slip", 
+        "type": "exchange_over_full_face", 
         "group": "", 
         "is_wall_with_viscous_effects": false, 
         "ghost_cell_data_available": true, 
@@ -354,13 +354,13 @@
         "num_cntrl_pts": 0, 
         "field_bc": {"name": "unspecified"},
         "pre_recon_action": [
-          {"type" : "internal_copy_then_reflect"}
+          {"type": "full_face_copy", "other_block": 2, "other_face": "west", "orientation": 0, "reorient_vector_quantities": false, "Rmatrix": [1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00]}
         ],
         "post_conv_flux_action": [
 
         ],
         "pre_spatial_deriv_action_at_bndry_faces": [
-          {"type" : "copy_cell_data"}
+          {"type" : "update_thermo_trans_coeffs"}
         ],
         "pre_spatial_deriv_action_at_bndry_cells": [
 
@@ -442,7 +442,7 @@
         "num_cntrl_pts": 0, 
         "field_bc": {"name": "unspecified"},
         "pre_recon_action": [
-          {"type": "full_face_copy", "other_block": 0, "other_face": "east", "orientation": 0, "reorient_vector_quantities": false, "Rmatrix": [1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00]}
+          {"type": "full_face_copy", "other_block": 1, "other_face": "east", "orientation": 0, "reorient_vector_quantities": false, "Rmatrix": [1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 0.000000000000000000e+00, 1.000000000000000000e+00]}
         ],
         "post_conv_flux_action": [
 
@@ -458,19 +458,19 @@
         ]
     },
     "boundary_east": {"label": "", 
-        "type": "wall_with_slip", 
+        "type": "outflow_simple_flux", 
         "group": "", 
         "is_wall_with_viscous_effects": false, 
         "ghost_cell_data_available": true, 
-        "convective_flux_computed_in_bc": false, 
+        "convective_flux_computed_in_bc": true, 
         "is_design_surface": false, 
         "num_cntrl_pts": 0, 
         "field_bc": {"name": "unspecified"},
         "pre_recon_action": [
-          {"type" : "internal_copy_then_reflect"}
+          {"type": "extrapolate_copy", "x_order": 0}
         ],
         "post_conv_flux_action": [
-
+          {"type": "simple_outflow_flux" }
         ],
         "pre_spatial_deriv_action_at_bndry_faces": [
           {"type" : "copy_cell_data"}

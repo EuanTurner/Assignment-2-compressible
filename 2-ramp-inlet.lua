@@ -3,14 +3,14 @@
 
 config.title = "Ramjet Inlet (non-curved)"
 config.dimensions = 2
-config.axisymmetric = true
+-- config.axisymmetric = true
 
 -- Set gas model and flow parameters
 setGasModel('ideal-air.gas')
 
 M_inf = 6.42
 p_inf = 1354 -- Pa
-T_inf = 220.0 -- K (subject to change, currently placeholder)
+T_inf = 273.0 -- K (subject to change, currently placeholder)
 
 initial = FlowState:new{p=p_inf, T=T_inf}
 inflow = FlowState:new{p=p_inf, T=T_inf, velx=M_inf*initial.a, vely=0.0}
@@ -82,9 +82,10 @@ blk2 = FluidBlock:new{grid=grid[2], initialState=inflow,
 identifyBlockConnections() -- internal connections dealt with
 
 -- set solver settings (preliminary)
-config.max_time = 5.0e-3 -- s
-config.max_step = 3000
-config.dt_init = 1.0e-6 
+config.max_time = 4e-2 -- s
+config.max_step = 50000
+config.cfl_value = 0.5
+config.dt_init = 1.0e-3 
 config.flux_calculator = "ausmdv"
 config.dt_plot = 0.5e-3
 

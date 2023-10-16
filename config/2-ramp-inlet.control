@@ -1,5 +1,5 @@
 {
-"dt_init": 9.999999999999999547e-07,
+"dt_init": 1.000000000000000021e-03,
 "dt_max": 1.000000000000000021e-03,
 "cfl_scale_factor": 1.000000000000000000e+00,
 "stringent_cfl": false,
@@ -11,8 +11,8 @@
 "fixed_time_step": false,
 "print_count": 20,
 "cfl_count": 10,
-"max_time": 5.000000000000000104e-03,
-"max_step": 3000,
+"max_time": 4.000000000000000083e-02,
+"max_step": 50000,
 "dt_plot": 5.000000000000000104e-04,
 "dt_history": 1.000000000000000021e-03,
 "dt_loads": 1.000000000000000021e-03,

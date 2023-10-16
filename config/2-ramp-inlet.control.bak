@@ -11,7 +11,7 @@
 "fixed_time_step": false,
 "print_count": 20,
 "cfl_count": 10,
-"max_time": 5.000000000000000104e-03,
+"max_time": 1.000000000000000021e-02,
 "max_step": 3000,
 "dt_plot": 5.000000000000000104e-04,
 "dt_history": 1.000000000000000021e-03,

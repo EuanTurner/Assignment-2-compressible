@@ -3,7 +3,7 @@
 
 config.title = "Ramjet Inlet (non-curved)"
 config.dimensions = 2
--- config.axisymmetric = true
+config.axisymmetric = false
 
 -- Set gas model and flow parameters
 setGasModel('ideal-air.gas')
@@ -17,13 +17,13 @@ inflow = FlowState:new{p=p_inf, T=T_inf, velx=M_inf*initial.a, vely=0.0}
 
 -- Specified ramp coordinates
 Ax = 0.0
-Ay = 0.541
+Ay = 0.454
 Bx = 0.988
-By = 0.386
-Cx = 2.170
-Cy = 0.057
+By = 0.299
+Cx = 1.807
+Cy = 0.045
 
-Dx = 2.5 --free parameter (can be chosen)
+Dx = 2 --free parameter (can be chosen)
 
 a = Vector3:new{x=Ax, y=0.0}
 b = Vector3:new{x=Bx, y=0.0}

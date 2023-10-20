@@ -17,4 +17,4 @@ post:
 	e4shared --job=${filename} --post --vtk-xml --tindx-plot=all --add-vars="mach,total-p"
 
 post-plot:
-	e4shared --job=${filename} --post --tindx-plot=last --slice-list="1,19,:,0" --output-file="inlet-wall-ss.dat" --add-vars="mach,total-p"
+	e4shared --job=${filename} --post --tindx-plot=last --slice-list="2,0,:,0" --output-file="throat-wall-ss.dat" --add-vars="mach,total-p"

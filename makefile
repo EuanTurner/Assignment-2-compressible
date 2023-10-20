@@ -1,4 +1,4 @@
-filename=2-ram-inlet
+filename=2-ramp-inlet
 
 #remove generated files
 clean:
@@ -15,3 +15,6 @@ run:
 
 post:
 	e4shared --job=${filename} --post --vtk-xml --tindx-plot=all --add-vars="mach,total-p"
+
+post-plot:
+	e4shared --job=${filename} --post --tindx-plot=last --slice-list="1,19,:,0" --output-file="inlet-wall-ss.dat" --add-vars="mach,total-p"

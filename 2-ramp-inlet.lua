@@ -82,10 +82,15 @@ blk2 = FluidBlock:new{grid=grid[2], initialState=inflow,
 identifyBlockConnections() -- internal connections dealt with
 
 -- set solver settings (preliminary)
-config.max_time = 4e-2 -- s
+config.max_time = 10.0e-3 -- s
 config.max_step = 50000
-config.cfl_value = 0.5
-config.dt_init = 1.0e-3 
+config.cfl_value = 0.7
+config.dt_init = 1.0e-6 
 config.flux_calculator = "ausmdv"
-config.dt_plot = 0.5e-3
+config.dt_plot = config.max_time/100 --100 frames?
+config.dt_history = 1.0e-5
+
+setHistoryPoint{x=e.x, y=e.y} --at the inflow wall top left
+setHistoryPoint{x=h.x, y=h.y} --at the outflow wall top
+setHistoryPoint{x=g.x+(g.x)/2, y=g.y-(g.y)/2} -- capture the pressure inside of the throat
 

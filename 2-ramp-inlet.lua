@@ -66,9 +66,9 @@ patch[2] = CoonsPatch:new{
 }
 
 grid={}
-grid[0] = StructuredGrid:new{psurface=patch[0], niv=21, njv=11}
-grid[1] = StructuredGrid:new{psurface=patch[1], niv=21, njv=11}
-grid[2] = StructuredGrid:new{psurface=patch[2], niv=21, njv=11}
+grid[0] = StructuredGrid:new{psurface=patch[0], niv=41, njv=21} --21, 11
+grid[1] = StructuredGrid:new{psurface=patch[1], niv=41, njv=21}
+grid[2] = StructuredGrid:new{psurface=patch[2], niv=41, njv=21}
 
 blk0 = FluidBlock:new{grid=grid[0], initialState=inflow,
                         bcList={west=InFlowBC_Supersonic:new{flowState=inflow}}    

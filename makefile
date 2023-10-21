@@ -18,3 +18,6 @@ post:
 
 post-plot:
 	e4shared --job=${filename} --post --tindx-plot=last --slice-list="2,0,:,0" --output-file="throat-wall-ss.dat" --add-vars="mach,total-p"
+
+post-plot-inlet-tot-pressure:
+	e4shared --job=${filename} --post --tindx-plot=last --slice-list="0,0,:,0" --output-file="inlet-freestream-ss.dat" --add-vars="mach,total-p"

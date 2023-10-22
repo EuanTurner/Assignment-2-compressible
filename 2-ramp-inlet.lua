@@ -92,5 +92,5 @@ config.dt_history = 1.0e-5
 
 setHistoryPoint{x=e.x, y=e.y} --at the inflow wall top left
 setHistoryPoint{x=h.x, y=h.y} --at the outflow wall top
--- setHistoryPoint{x=g.x+(g.x)/2, y=g.y-(g.y)/2} -- capture the pressure inside of the throat
+setHistoryPoint{x=g.x+(h.x - g.x)/2, y=g.y/2} -- capture the pressure inside of the throat
 

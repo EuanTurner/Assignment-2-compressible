@@ -66,9 +66,9 @@ patch[2] = CoonsPatch:new{
 }
 
 grid={}
-grid[0] = StructuredGrid:new{psurface=patch[0], niv=41, njv=21} --21, 11
-grid[1] = StructuredGrid:new{psurface=patch[1], niv=41, njv=21}
-grid[2] = StructuredGrid:new{psurface=patch[2], niv=41, njv=21}
+grid[0] = StructuredGrid:new{psurface=patch[0], niv=200, njv=100} --21, 11 double each time
+grid[1] = StructuredGrid:new{psurface=patch[1], niv=200, njv=100}
+grid[2] = StructuredGrid:new{psurface=patch[2], niv=200, njv=100}
 
 blk0 = FluidBlock:new{grid=grid[0], initialState=inflow,
                         bcList={west=InFlowBC_Supersonic:new{flowState=inflow}}    
@@ -83,8 +83,8 @@ identifyBlockConnections() -- internal connections dealt with
 
 -- set solver settings (preliminary)
 config.max_time = 10.0e-3 -- s
-config.max_step = 50000
-config.cfl_value = 0.7
+config.max_step = 100000
+config.cfl_value = 0.5
 config.dt_init = 1.0e-6 
 config.flux_calculator = "ausmdv"
 config.dt_plot = config.max_time/100 --100 frames?

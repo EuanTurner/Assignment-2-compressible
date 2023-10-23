@@ -4,6 +4,7 @@
 config.title = "Ramjet Inlet (non-curved)"
 config.dimensions = 2
 config.axisymmetric = false
+config.viscous = false
 
 -- Set gas model and flow parameters
 setGasModel('ideal-air.gas')
@@ -66,9 +67,9 @@ patch[2] = CoonsPatch:new{
 }
 
 grid={}
-grid[0] = StructuredGrid:new{psurface=patch[0], niv=21, njv=11} --21, 11 double each time
-grid[1] = StructuredGrid:new{psurface=patch[1], niv=21, njv=11}
-grid[2] = StructuredGrid:new{psurface=patch[2], niv=21, njv=11}
+grid[0] = StructuredGrid:new{psurface=patch[0], niv=81, njv=41} --21, 11 double each time
+grid[1] = StructuredGrid:new{psurface=patch[1], niv=81, njv=41}
+grid[2] = StructuredGrid:new{psurface=patch[2], niv=81, njv=41}
 
 blk0 = FluidBlock:new{grid=grid[0], initialState=inflow,
                         bcList={west=InFlowBC_Supersonic:new{flowState=inflow}}    
